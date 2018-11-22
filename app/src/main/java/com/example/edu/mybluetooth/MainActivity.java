@@ -2,6 +2,7 @@ package com.example.edu.mybluetooth;
 
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -42,9 +43,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         for (BluetoothDevice bt : pairedDeviceList) {
             pairedList.add(bt.getName() + "\n" + bt.getAddress());
         }
-        final ArrayAdapter adapter =
-                new ArrayAdapter(this, android.R.layout.simple_list_item_1, pairedList);
-
+        final ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, pairedList);
         listViewPairedDeviceList.setAdapter(adapter);
         listViewPairedDeviceList.setOnItemClickListener(this);
     }
@@ -53,10 +52,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         String info = ((TextView) view).getText().toString();
         String address = info.substring(info.length() - 17);
-        Toast.makeText(view.getContext(),address,Toast.LENGTH_SHORT).show();
-//        Intent intent = new Intent(view.getContext(), BluetoothClientActivity.class);
-//        intent.putExtra("device_address", address);
-//        startActivity(intent);
+        //Toast.makeText(view.getContext(),address,Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(view.getContext(), BluetoothClientActivity.class);
+        intent.putExtra("device_address", address);
+        startActivity(intent);
 
     }
 }
