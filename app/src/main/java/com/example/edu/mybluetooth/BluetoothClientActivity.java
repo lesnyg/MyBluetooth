@@ -20,7 +20,7 @@ public class BluetoothClientActivity extends AppCompatActivity implements Adapte
     String address;
     BluetoothSocket bluetoothSocket;
     private BluetoothAdapter bluetoothAdapter = null;
-    Button buttonUp;
+    Button buttonUp,buttonDown,buttonLeft,buttonRight,buttonCenter,buttonA,buttonB,buttonC,buttonD,buttonE;
     ProgressBar progressBar;
 
     @Override
@@ -36,6 +36,25 @@ public class BluetoothClientActivity extends AppCompatActivity implements Adapte
 
         buttonUp = findViewById(R.id.buttonUp);
         buttonUp.setOnClickListener(this);
+        buttonDown = findViewById(R.id.buttonDown);
+        buttonDown.setOnClickListener(this);
+        buttonLeft = findViewById(R.id.buttonLeft);
+        buttonLeft.setOnClickListener(this);
+        buttonRight = findViewById(R.id.buttonRight);
+        buttonRight.setOnClickListener(this);
+        buttonCenter = findViewById(R.id.buttonCenter);
+        buttonCenter.setOnClickListener(this);
+        buttonA = findViewById(R.id.buttonA);
+        buttonA.setOnClickListener(this);
+        buttonB = findViewById(R.id.buttonB);
+        buttonB.setOnClickListener(this);
+        buttonC = findViewById(R.id.buttonC);
+        buttonC.setOnClickListener(this);
+        buttonD = findViewById(R.id.buttonD);
+        buttonD.setOnClickListener(this);
+        buttonE = findViewById(R.id.buttonE);
+        buttonE.setOnClickListener(this);
+
     }
 
     @Override
@@ -45,33 +64,33 @@ public class BluetoothClientActivity extends AppCompatActivity implements Adapte
             case R.id.buttonUp:
                 message = "U";
                 break;
-//            case R.id.buttonDOWN:
-//                message = "D";
-//                break;
-//            case R.id.buttonLEFT:
-//                message = "C";
-//                break;
-//            case R.id.buttonRIGHT:
-//                message = "L";
-//                break;
-//            case R.id.buttonA:
-//                message = "R";
-//                break;
-//            case R.id.buttonB:
-//                message = "a";
-//                break;
-//            case R.id.buttonC:
-//                message = "b";
-//                break;
-//            case R.id.buttonD:
-//                message = "c";
-//                break;
-//            case R.id.buttonE:
-//                message = "d";
-//                break;
-//            case R.id.buttonF:
-//                message = "e";
-//                break;
+            case R.id.buttonDown:
+                message = "D";
+                break;
+            case R.id.buttonLeft:
+                message = "L";
+                break;
+            case R.id.buttonRight:
+                message = "R";
+                break;
+            case R.id.buttonA:
+                message = "a";
+                break;
+            case R.id.buttonB:
+                message = "b";
+                break;
+            case R.id.buttonC:
+                message = "c";
+                break;
+            case R.id.buttonD:
+                message = "d";
+                break;
+            case R.id.buttonE:
+                message = "e";
+                break;
+            case R.id.buttonCenter:
+                message = "C";
+                break;
         }
         try {
             bluetoothSocket.getOutputStream().write(message.getBytes());

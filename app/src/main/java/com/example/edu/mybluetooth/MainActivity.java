@@ -11,7 +11,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Set;
@@ -29,7 +28,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
 
-        button = findViewById(R.id.button);
+        button = findViewById(R.id.buttonD);
         button.setOnClickListener(this);
 
         listViewPairedDeviceList = findViewById(R.id.dynamic);
